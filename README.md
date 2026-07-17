@@ -17,8 +17,8 @@ First public release of the dashboard.
 
 ### Links
 
-- Figma prototype: [Figma](https://www.figma.com/make/lj7KNfF9Ogu6F7TV0vT0MW/FX-Options-Risk-Dashboard?p=f&t=aPZOkBufIOwzZIfq-0)
-- Live application: [fx-risk-dashboard.vercel.app](https://fx-risk-dashboard.vercel.app/)
+- Figma prototype: [Figma](https://dazzle-shred-18160730.figma.site)
+- Live application: [Realtime Risk Dashboard](https://fx-risk-dashboard.vercel.app/)
 
 [![FX Options Risk Dashboard Preview](public/screenshot/Screenshot.png)](https://fx-risk-dashboard.vercel.app/)
 
