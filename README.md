@@ -1,11 +1,21 @@
+# FX Options Risk Dashboard
 
-  # FX Options Risk Dashboard
+A simulated front-office UI/UX case study designed in Figma and implemented with React and TypeScript.
 
-  This is a code bundle for FX Options Risk Dashboard. The original project is available at https://www.figma.com/design/lj7KNfF9Ogu6F7TV0vT0MW/FX-Options-Risk-Dashboard.
+## Links
 
-  ## Running the code
+- Figma prototype: https://www.figma.com/make/lj7KNfF9Ogu6F7TV0vT0MW/FX-Options-Risk-Dashboard?t=ZzBklbEJk9shwybB-0
+- Live application: https://fx-risk-dashboard.vercel.app/
 
-  Run `npm i` to install the dependencies.
+## Features
 
-  Run `npm run dev` to start the development server.
-  # FX-Risk-Dashboard
+- FX option trade form
+- Position monitoring
+- Delta, Gamma, Vega and Theta metrics
+- Scenario analysis
+- Responsive layout
+- Accessible controls
+
+## Important notice
+
+All market data, positions and risk calculations in this project are simulated for portfolio and educational purposes.
