@@ -45,22 +45,22 @@ export default function Shell() {
 
       {/* ── Sidebar ── */}
       <aside
-        className="flex flex-col shrink-0 border-r border-border"
-        style={{ width: 200, background: "#080f1a" }}
+        className="flex flex-col shrink-0 border-r border-border w-[76px] sm:w-[92px] lg:w-[200px]"
+        style={{ background: "#080f1a" }}
       >
         {/* Logo */}
         <div className="px-4 py-4 border-b border-border">
           <div className="flex items-center gap-2">
             <Shield size={15} className="text-[#00c9a7]" />
             <span
-              className="font-bold tracking-widest uppercase"
+              className="font-bold tracking-widest uppercase hidden lg:inline"
               style={{ fontFamily: "'Barlow Condensed', sans-serif", color: "#00c9a7", fontSize: 15, letterSpacing: "0.2em" }}
             >
               FX·RISK
             </span>
           </div>
           <div
-            className="text-[10px] tracking-widest text-muted-foreground mt-0.5"
+            className="text-[10px] tracking-widest text-muted-foreground mt-0.5 hidden lg:block"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             OPTIONS DESK · LDN
@@ -74,12 +74,12 @@ export default function Shell() {
               key={to}
               to={to}
               end={to === "/"}
-              className="flex items-center gap-2.5 px-4 py-2.5 text-xs text-muted-foreground border-l-2 border-transparent hover:text-foreground hover:bg-white/[0.03] transition-colors"
+              className="flex items-center gap-2.5 px-3 lg:px-4 py-2.5 text-xs text-muted-foreground border-l-2 border-transparent hover:text-foreground hover:bg-white/[0.03] transition-colors"
               style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 13, letterSpacing: "0.1em" }}
               activeClassName="nav-active"
             >
               <Icon size={14} />
-              {label.toUpperCase()}
+              <span className="hidden lg:inline">{label.toUpperCase()}</span>
             </NavLink>
           ))}
         </nav>
@@ -108,9 +108,9 @@ export default function Shell() {
       {/* ── Main column ── */}
       <div className="flex flex-col flex-1 min-w-0">
         {/* Top bar */}
-        <header className="shrink-0 flex items-center justify-between px-5 py-2 border-b border-border bg-card">
+        <header className="shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-3 sm:px-4 md:px-5 py-2 border-b border-border bg-card">
           {/* Spot rates ticker */}
-          <div className="flex items-center gap-2 overflow-x-auto">
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto">
             {SPOTS.map((s) => (
               <span key={s.pair} className="font-mono text-[11px] border border-border rounded px-2 py-0.5 flex items-center gap-1.5 shrink-0">
                 <span className="text-muted-foreground">{s.pair}</span>
@@ -128,8 +128,8 @@ export default function Shell() {
           </div>
 
           {/* Right side */}
-          <div className="flex items-center gap-4 shrink-0 ml-4">
-            <div className="font-mono text-[10px] text-muted-foreground flex items-center gap-1">
+          <div className="flex items-center gap-3 md:gap-4 shrink-0 w-full md:w-auto justify-between md:justify-end">
+            <div className="font-mono text-[10px] text-muted-foreground items-center gap-1 hidden sm:flex">
               <AlertTriangle size={10} className="text-[#f59e0b]" />
               <span>VaR 95%: <span className="text-[#f59e0b]">$284,310</span></span>
             </div>

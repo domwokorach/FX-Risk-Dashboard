@@ -65,9 +65,9 @@ export default function Risk() {
   const varUtil   = Math.round(varCurrent / varLimit * 100);
 
   return (
-    <div className="p-4 flex flex-col gap-4">
+    <div className="p-3 sm:p-4 flex flex-col gap-4">
       {/* Top summary */}
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
         {[
           { label: "VaR 95% (1-day)",   value: `$${(varCurrent/1000).toFixed(0)}K`,  util: varUtil,   color: "#f59e0b", limit: `$${varLimit/1000}K limit` },
           { label: "VaR 99% (1-day)",   value: "$370.6K",                             util: 74,        color: "#f59e0b", limit: "$500K limit" },
@@ -89,7 +89,7 @@ export default function Risk() {
         ))}
       </div>
 
-      <div className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
         {/* Historical VaR */}
         <div className="rounded border border-border bg-card p-4">
           <div className="mb-3"><SH>Historical VaR vs Actual P&L</SH></div>
@@ -133,7 +133,7 @@ export default function Risk() {
       {/* Greeks by pair */}
       <div className="rounded border border-border bg-card p-4">
         <div className="mb-3"><SH>Greeks Aggregation by Currency Pair</SH></div>
-        <div className="grid gap-3" style={{ gridTemplateColumns: "1fr 1fr" }}>
+        <div className="grid gap-3 grid-cols-1 lg:grid-cols-2">
           {/* Delta bar */}
           <div>
             <div className="font-mono text-[10px] text-muted-foreground mb-2">Net Delta</div>
@@ -180,9 +180,9 @@ export default function Risk() {
         <div className="mb-3"><SH>Stress Test Scenarios</SH></div>
         <div className="grid gap-2">
           {STRESS.map((s, i) => (
-            <div key={i} className="flex items-center gap-4 py-2 border-b border-border last:border-0">
-              <div className="w-44 font-mono text-[11px] text-foreground shrink-0">{s.scenario}</div>
-              <div className="flex-1">
+            <div key={i} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 py-2 border-b border-border last:border-0">
+              <div className="w-full md:w-44 font-mono text-[11px] text-foreground shrink-0">{s.scenario}</div>
+              <div className="w-full md:flex-1">
                 <div className="h-1 rounded-full bg-secondary overflow-hidden">
                   <div
                     className="h-full rounded-full transition-all"
@@ -195,12 +195,12 @@ export default function Risk() {
                 </div>
               </div>
               <div
-                className="w-20 font-mono text-xs font-semibold text-right shrink-0"
+                className="w-full md:w-20 font-mono text-xs font-semibold md:text-right shrink-0"
                 style={{ color: s.chf >= 0 ? "#00c9a7" : "#e8394a" }}
               >
                 {s.chf >= 0 ? "+" : ""}{s.chf}%
               </div>
-              <div className="font-mono text-[10px] text-muted-foreground w-52 shrink-0">{s.detail}</div>
+              <div className="font-mono text-[10px] text-muted-foreground w-full md:w-52 shrink-0">{s.detail}</div>
               <div className="shrink-0">
                 {s.chf < -8 ? (
                   <AlertTriangle size={12} className="text-[#e8394a]" />

@@ -132,8 +132,8 @@ export default function Pricer() {
   const moneyness = ((spot / strike - 1) * 100);
 
   return (
-    <div className="p-4 flex flex-col gap-4">
-      <div className="grid gap-4" style={{ gridTemplateColumns: "300px 1fr" }}>
+    <div className="p-3 sm:p-4 flex flex-col gap-4">
+      <div className="grid gap-4 grid-cols-1 xl:grid-cols-[300px_minmax(0,1fr)]">
         {/* Inputs */}
         <div className="rounded border border-border bg-card p-5 space-y-5">
           <div>
@@ -189,7 +189,7 @@ export default function Pricer() {
 
         {/* Greeks output */}
         <div className="space-y-4">
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {Greeks.map((g) => (
               <div key={g.label} className="rounded border border-border bg-card px-3 py-2.5">
                 <div className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-1">{g.label}</div>
@@ -202,9 +202,9 @@ export default function Pricer() {
 
           {/* Profile chart */}
           <div className="rounded border border-border bg-card p-4">
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
               <SH>Greek Profile vs Spot</SH>
-              <div className="flex gap-1">
+              <div className="flex gap-1 flex-wrap">
                 {GREEK_PROFILES.map((gp) => (
                   <button
                     key={gp.key}

@@ -137,6 +137,18 @@
     font-size: var(--font-size);
   }
 
+  @media (max-width: 767px) {
+    html {
+      font-size: 13px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    html {
+      font-size: 13.5px;
+    }
+  }
+
   h1 {
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);

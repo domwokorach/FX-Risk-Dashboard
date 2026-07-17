@@ -77,7 +77,7 @@ export default function Positions() {
   );
 
   return (
-    <div className="p-4 flex flex-col gap-4 h-full">
+    <div className="p-3 sm:p-4 flex flex-col gap-4 h-full">
       {/* Filters */}
       <div className="flex items-center gap-3 flex-wrap">
         <Filter size={12} className="text-muted-foreground" />
@@ -99,12 +99,12 @@ export default function Positions() {
             <X size={10} /> Clear
           </button>
         )}
-        <div className="ml-auto font-mono text-[10px] text-muted-foreground">
+        <div className="w-full sm:w-auto sm:ml-auto font-mono text-[10px] text-muted-foreground">
           {filtered.length} of {POSITIONS.length} positions
         </div>
       </div>
 
-      <div className="flex gap-4 flex-1 min-h-0">
+      <div className="flex flex-col xl:flex-row gap-4 flex-1 min-h-0">
         {/* Table */}
         <div className="flex-1 rounded border border-border bg-card overflow-auto">
           <table className="w-full font-mono text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
@@ -178,7 +178,7 @@ export default function Positions() {
 
         {/* Detail panel */}
         {selectedPos && (
-          <div className="w-56 shrink-0 rounded border border-[#00c9a7]/30 bg-card p-4 space-y-3 overflow-y-auto" style={{ background: "rgba(0,201,167,0.04)" }}>
+          <div className="w-full xl:w-56 shrink-0 rounded border border-[#00c9a7]/30 bg-card p-4 space-y-3 overflow-y-auto" style={{ background: "rgba(0,201,167,0.04)" }}>
             <div>
               <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Selected Position</div>
               <div className="font-mono text-sm font-semibold text-[#00c9a7]">{selectedPos.pair}</div>

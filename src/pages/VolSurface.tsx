@@ -55,11 +55,11 @@ export default function VolSurface() {
   const selectedTi = hoveredTenor ?? 2;
 
   return (
-    <div className="p-4 flex flex-col gap-4">
+    <div className="p-3 sm:p-4 flex flex-col gap-4">
       {/* Pair selector */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-wrap">
         <SH>Currency Pair</SH>
-        <div className="flex gap-1.5">
+        <div className="flex gap-1.5 flex-wrap">
           {PAIRS.map((p) => (
             <button
               key={p}
@@ -75,18 +75,18 @@ export default function VolSurface() {
             </button>
           ))}
         </div>
-        <span className="ml-auto font-mono text-[10px] text-muted-foreground">
+        <span className="w-full md:w-auto md:ml-auto font-mono text-[10px] text-muted-foreground">
           SABR model · Mid market · 17 Jul 2026 15:02 GMT
         </span>
       </div>
 
       {/* Heatmap + smile */}
-      <div className="grid gap-4" style={{ gridTemplateColumns: "1fr 280px" }}>
+      <div className="grid gap-4 grid-cols-1 xl:grid-cols-[minmax(0,1fr)_280px]">
         {/* Heatmap */}
         <div className="rounded border border-border bg-card p-4">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
             <SH>Implied Volatility Surface — {pair}</SH>
-            <div className="flex items-center gap-3 font-mono text-[9px] text-muted-foreground">
+            <div className="flex items-center gap-3 font-mono text-[9px] text-muted-foreground flex-wrap">
               <span className="flex items-center gap-1"><span className="inline-block w-3 h-3 rounded-sm" style={{ background: "rgba(0,201,167,0.8)" }} /> &lt;8%</span>
               <span className="flex items-center gap-1"><span className="inline-block w-3 h-3 rounded-sm" style={{ background: "rgba(245,158,11,0.65)" }} /> 9–11%</span>
               <span className="flex items-center gap-1"><span className="inline-block w-3 h-3 rounded-sm" style={{ background: "rgba(232,57,74,0.78)" }} /> &gt;11%</span>
@@ -180,7 +180,7 @@ export default function VolSurface() {
       </div>
 
       {/* Term structure */}
-      <div className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
         <div className="rounded border border-border bg-card p-4">
           <div className="mb-3"><SH>ATM Vol Term Structure</SH></div>
           <ResponsiveContainer width="100%" height={180}>

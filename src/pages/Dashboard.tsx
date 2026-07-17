@@ -85,25 +85,25 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="p-4 flex flex-col gap-4 min-h-full">
+    <div className="p-3 sm:p-4 flex flex-col gap-4 min-h-full">
       {/* Session banner */}
       <div
-        className="rounded border border-border px-4 py-2.5 flex items-center gap-6"
+        className="rounded border border-border px-3 sm:px-4 py-2.5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 lg:gap-6"
         style={{ background: "linear-gradient(90deg, rgba(0,201,167,0.08) 0%, transparent 70%)" }}
       >
-        <div>
+        <div className="w-full sm:w-auto">
           <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mr-2">Session P&L</span>
           <span className="font-mono text-2xl font-bold" style={{ color: pnlColor(totalPnL), fontFamily: "'JetBrains Mono', monospace" }}>
             {fmtMoney(totalPnL)}
           </span>
         </div>
-        <div className="h-5 w-px bg-border" />
+        <div className="hidden sm:block h-5 w-px bg-border" />
         <span className="font-mono text-xs text-muted-foreground">Notional: <span className="text-foreground">$95.5M</span></span>
-        <span className="font-mono text-xs text-muted-foreground">Book: <span className="text-foreground">G10-VOL-02, G10-VOL-01, ASIA-VOL-03, EM-VOL-01</span></span>
+        <span className="font-mono text-xs text-muted-foreground break-words">Book: <span className="text-foreground">G10-VOL-02, G10-VOL-01, ASIA-VOL-03, EM-VOL-01</span></span>
         {!alertAck && (
           <button
             onClick={() => setAlertAck(true)}
-            className="ml-auto flex items-center gap-1.5 font-mono text-[10px] text-[#f59e0b] border border-[#f59e0b]/30 rounded px-2.5 py-1 hover:bg-[#f59e0b]/10 transition-colors"
+            className="sm:ml-auto self-start sm:self-auto flex items-center gap-1.5 font-mono text-[10px] text-[#f59e0b] border border-[#f59e0b]/30 rounded px-2.5 py-1 hover:bg-[#f59e0b]/10 transition-colors"
           >
             <AlertTriangle size={10} />
             EUR/USD gamma spike · ACK
@@ -112,14 +112,14 @@ export default function Dashboard() {
       </div>
 
       {/* KPI row */}
-      <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(6, 1fr)" }}>
+      <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
         {KPIS.map((k) => <KPICard key={k.label} {...k} />)}
       </div>
 
       {/* Charts row */}
-      <div className="grid gap-3" style={{ gridTemplateColumns: "2fr 1fr" }}>
+      <div className="grid gap-3 grid-cols-1 xl:grid-cols-3">
         {/* Intraday P&L */}
-        <div className="rounded border border-border bg-card p-4">
+        <div className="rounded border border-border bg-card p-4 xl:col-span-2">
           <div className="flex items-center justify-between mb-3">
             <SH>Intraday P&L</SH>
             <span className="font-mono text-[10px] text-muted-foreground">17 Jul 2026 · 1-min bars</span>
@@ -163,7 +163,7 @@ export default function Dashboard() {
       </div>
 
       {/* Limit gauges */}
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
         {LIMITS.map((l) => (
           <div key={l.label} className="rounded border border-border bg-card p-4">
             <div className="flex items-center justify-between mb-2">
