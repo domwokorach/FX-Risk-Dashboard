@@ -34,3 +34,7 @@ All market data, positions, and risk calculations are simulated for portfolio an
 ## Important notice
 
 All market data, positions and risk calculations in this project are simulated for portfolio and educational purposes.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE).
